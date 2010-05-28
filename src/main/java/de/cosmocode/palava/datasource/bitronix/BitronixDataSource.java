@@ -24,7 +24,7 @@ import de.cosmocode.palava.core.lifecycle.Disposable;
 import de.cosmocode.palava.core.lifecycle.Initializable;
 import de.cosmocode.palava.core.lifecycle.LifecycleException;
 import de.cosmocode.palava.datasource.DataSourceConfig;
-import de.cosmocode.palava.datasource.DataSourceProvider;
+import de.cosmocode.palava.datasource.ForwardingDataSource;
 import de.cosmocode.palava.jndi.JndiContextBinderUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +38,7 @@ import java.util.Properties;
  * 
  * @author Tobias Sarnowski
  */
-final class BitronixDataSource implements Initializable, Disposable, DataSourceProvider {
+final class BitronixDataSource extends ForwardingDataSource implements Initializable, Disposable {
 
     private static final Logger LOG = LoggerFactory.getLogger(BitronixDataSource.class);
 
@@ -96,8 +96,8 @@ final class BitronixDataSource implements Initializable, Disposable, DataSourceP
         dataSource.close();
     }
 
-	@Override
-	public DataSource get() {
-		return dataSource;
-	}
+    @Override
+    protected DataSource delegate() {
+        return dataSource;
+    }
 }

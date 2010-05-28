@@ -17,8 +17,8 @@
 package de.cosmocode.palava.datasource.bitronix;
 
 import de.cosmocode.palava.datasource.AbstractDataSourceModule;
-import de.cosmocode.palava.datasource.DataSourceProvider;
 
+import javax.sql.DataSource;
 import java.lang.annotation.Annotation;
 
 /**
@@ -40,7 +40,7 @@ public final class BitronixDataSourceModule extends AbstractDataSourceModule {
 
 	
 	@Override
-	protected Class<? extends DataSourceProvider> getDataSourceProvider() {
+	protected Class<? extends DataSource> getDataSourceFactory() {
 		return BitronixDataSource.class;
 	}
 }
