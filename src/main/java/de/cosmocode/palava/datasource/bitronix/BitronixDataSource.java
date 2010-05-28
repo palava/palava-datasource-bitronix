@@ -85,7 +85,7 @@ final class BitronixDataSource implements Initializable, Disposable, DataSourceP
         dataSource.init();
 
         try {
-            LOG.trace("Binding XADataSource {} to {} [{}]", new Object[] {
+            LOG.info("Binding DataSource {} to {} [{}]", new Object[] {
                 unique, jndiName, dataSource
             });
             context.bind(jndiName, dataSource);
