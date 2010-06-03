@@ -79,6 +79,7 @@ final class BitronixDataSource extends ForwardingDataSource implements Initializ
         dataSource.setMaxPoolSize(poolMax);
         dataSource.setMinPoolSize(poolMin);
         dataSource.getDriverProperties().putAll(properties);
+        dataSource.setAutomaticEnlistingEnabled(true);
         dataSource.init();
 
         try {
