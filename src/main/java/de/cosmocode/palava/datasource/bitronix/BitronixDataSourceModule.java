@@ -16,10 +16,11 @@
 
 package de.cosmocode.palava.datasource.bitronix;
 
-import de.cosmocode.palava.datasource.AbstractDataSourceModule;
+import java.lang.annotation.Annotation;
 
 import javax.sql.DataSource;
-import java.lang.annotation.Annotation;
+
+import de.cosmocode.palava.datasource.AbstractDataSourceModule;
 
 /**
  * @author Tobias Sarnowski

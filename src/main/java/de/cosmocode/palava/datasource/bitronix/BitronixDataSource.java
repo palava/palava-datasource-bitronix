@@ -16,22 +16,26 @@
 
 package de.cosmocode.palava.datasource.bitronix;
 
+import java.util.Properties;
+
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import bitronix.tm.resource.jdbc.PoolingDataSource;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+
 import de.cosmocode.palava.core.lifecycle.Disposable;
 import de.cosmocode.palava.core.lifecycle.Initializable;
 import de.cosmocode.palava.core.lifecycle.LifecycleException;
 import de.cosmocode.palava.datasource.DataSourceConfig;
 import de.cosmocode.palava.datasource.ForwardingDataSource;
 import de.cosmocode.palava.jndi.JndiContextBinderUtility;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
  * A serice which loads a datasource and binds it in jndi.
