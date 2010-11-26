@@ -23,25 +23,29 @@ import javax.sql.DataSource;
 import de.cosmocode.palava.datasource.AbstractDataSourceModule;
 
 /**
+ * Bitronix specific {@link AbstractDataSourceModule}.
+ * 
  * @author Tobias Sarnowski
  */
 public final class BitronixDataSourceModule extends AbstractDataSourceModule {
 
-	public BitronixDataSourceModule(String name) {
-		super(name);
-	}
+    public BitronixDataSourceModule(String name) {
+        super(name);
+    }
 
-	public BitronixDataSourceModule(Class<? extends Annotation> annotation, String name) {
-		super(annotation, name);
-	}
+    public BitronixDataSourceModule(Class<? extends Annotation> annotation, String name) {
+        super(annotation, name);
+    }
 
-	public BitronixDataSourceModule(Annotation annotation, String name) {
-		super(annotation, name);
-	}
+    public BitronixDataSourceModule(Annotation annotation, String name) {
+        super(annotation, name);
+    }
 
-	
-	@Override
-	protected Class<? extends DataSource> getDataSourceFactory() {
-		return BitronixDataSource.class;
-	}
+    
+    @Override
+    protected Class<? extends DataSource> getDataSourceFactory() {
+        return BitronixDataSource.class;
+    }
+    
 }
+
